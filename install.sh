@@ -377,7 +377,7 @@ else
     log_step "Downloading $file_name directly..."
     log_info "URL: ${CYAN}$download_url${NC}"
 fi
-if ! curl -L -o "$komari_agent_path" "$download_url"; then
+if ! curl -6 -L -o "$komari_agent_path" "$download_url"; then
     log_error "Download failed"
     exit 1
 fi
