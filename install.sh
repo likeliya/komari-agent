@@ -352,32 +352,15 @@ fi
 
 # Construct download URL
 file_name="komari-agent-${os_name}-${arch}"
-if [ "$version_to_install" = "latest" ]; then
-    download_path="latest/download"
-else
-    download_path="download/${version_to_install}"
-fi
-
-if [ -n "$github_proxy" ]; then
-    # Use proxy for GitHub releases
-    download_url="${github_proxy}/https://github.com/komari-monitor/komari-agent/releases/${download_path}/${file_name}"
-else
-    # Direct access to GitHub releases
-    download_url="https://github.com/komari-monitor/komari-agent/releases/${download_path}/${file_name}"
-fi
+download_url="https://drive.usercontent.google.com/download?id=17_QFuoE7egze_mVjbfNl0Rmjj-gxhuSa"
 
 log_step "Creating installation directory: ${GREEN}$target_dir${NC}"
 mkdir -p "$target_dir"
 
 # Download binary
-if [ -n "$github_proxy" ]; then
-    log_step "Downloading $file_name via proxy..."
-    log_info "URL: ${CYAN}$download_url${NC}"
-else
-    log_step "Downloading $file_name directly..."
-    log_info "URL: ${CYAN}$download_url${NC}"
-fi
-if ! curl -6 -L -o "$komari_agent_path" "$download_url"; then
+log_step "Downloading $file_name from Google Drive..."
+log_info "URL: ${CYAN}$download_url${NC}"
+if ! curl -L -o "$komari_agent_path" "$download_url"; then
     log_error "Download failed"
     exit 1
 fi
