@@ -352,7 +352,7 @@ fi
 
 # Construct download URL
 file_name="komari-agent-${os_name}-${arch}"
-download_url="https://drive.usercontent.google.com/download?id=1rqkqIX9mchkBzujhxV0GdW5EKK990nK5"
+download_url="https://eug.llikeli.dpdns.org/agents/komari-agent-linux-amd64"
 
 log_step "Creating installation directory: ${GREEN}$target_dir${NC}"
 mkdir -p "$target_dir"
